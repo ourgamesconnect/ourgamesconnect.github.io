@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWANS - Polityka Prywatności</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#eef1f6;
+    --surface:#ffffff;
+    --surface-2:#f4f6fa;
+    --text:#16213e;
+    --text-muted:#4d5a75;
+    --text-faint:#8390ac;
+    --accent:#1f6f4a;
+    --accent-strong:#175939;
+    --accent-soft:#e3f1e9;
+    --border:#d8ddea;
+    --shadow:0 1px 2px rgba(22,33,62,.04), 0 8px 24px -12px rgba(22,33,62,.12);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0e1524;
+      --surface:#162037;
+      --surface-2:#131b30;
+      --text:#eef1f6;
+      --text-muted:#aab4cc;
+      --text-faint:#7986a8;
+      --accent:#4bd693;
+      --accent-strong:#7de6b3;
+      --accent-soft:rgba(75,214,147,.12);
+      --border:#2a3557;
+      --shadow:0 1px 2px rgba(0,0,0,.2), 0 12px 28px -14px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e1524;
+    --surface:#162037;
+    --surface-2:#131b30;
+    --text:#eef1f6;
+    --text-muted:#aab4cc;
+    --text-faint:#7986a8;
+    --accent:#4bd693;
+    --accent-strong:#7de6b3;
+    --accent-soft:rgba(75,214,147,.12);
+    --border:#2a3557;
+    --shadow:0 1px 2px rgba(0,0,0,.2), 0 12px 28px -14px rgba(0,0,0,.5);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+  a{color:var(--accent-strong);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:56px 24px 96px;
+  }
+
+  .lang-switch{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:18px;
+  }
+  .lang-switch button{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:12.5px;
+    color:var(--text-muted);
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:7px 12px;
+    cursor:pointer;
+  }
+  .lang-switch button:hover{color:var(--accent-strong); border-color:var(--accent);}
+
+  header.doc-head{
+    padding-bottom:32px;
+    margin-bottom:8px;
+    border-bottom:1px solid var(--border);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--accent-strong);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:18px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);}
+
+  h1{
+    font-family:'Fraunces', Georgia, serif;
+    font-optical-sizing:auto;
+    font-weight:600;
+    font-size:clamp(2rem, 5vw, 2.7rem);
+    line-height:1.08;
+    letter-spacing:-.01em;
+    margin:0 0 10px;
+    text-wrap:balance;
+  }
+  .subtitle{
+    color:var(--text-muted);
+    font-size:1.05rem;
+    margin:0 0 22px;
+  }
+
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .meta-chip{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:12.5px;
+    color:var(--text-muted);
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:6px 10px;
+    display:flex;
+    gap:6px;
+    align-items:baseline;
+  }
+  .meta-chip b{color:var(--text); font-weight:600;}
+
+  .tldr{
+    margin:32px 0 40px;
+    background:var(--accent-soft);
+    border:1px solid var(--accent);
+    border-radius:12px;
+    padding:22px 24px 24px;
+  }
+  .tldr h2{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:12.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--accent-strong);
+    margin:0 0 14px;
+  }
+  .tldr ul{margin:0; padding-left:0; list-style:none;}
+  .tldr li{
+    position:relative;
+    padding-left:26px;
+    margin-bottom:10px;
+    font-size:.98rem;
+  }
+  .tldr li:last-child{margin-bottom:0;}
+  .tldr li::before{
+    content:"⚽";
+    position:absolute; left:0; top:.05em;
+    font-size:.85em;
+    filter:grayscale(1) opacity(.55);
+  }
+  .tldr strong{color:var(--text); font-weight:600;}
+
+  nav.toc{
+    margin:0 0 48px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:18px 22px;
+    box-shadow:var(--shadow);
+  }
+  nav.toc h2{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:11.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    margin:0 0 12px;
+  }
+  nav.toc ol{
+    margin:0; padding:0; list-style:none;
+    columns:2;
+    column-gap:24px;
+  }
+  nav.toc li{break-inside:avoid; margin-bottom:8px;}
+  nav.toc a{
+    text-decoration:none;
+    color:var(--text-muted);
+    font-size:.92rem;
+    display:flex;
+    gap:8px;
+  }
+  nav.toc a:hover{color:var(--accent-strong);}
+  nav.toc a .n{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    color:var(--text-faint);
+    font-size:.85em;
+  }
+
+  section.clause{
+    margin:0 0 40px;
+    scroll-margin-top:24px;
+  }
+  section.clause h2{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    font-size:1.45rem;
+    letter-spacing:-.005em;
+    margin:0 0 14px;
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    text-wrap:balance;
+  }
+  section.clause h2 .mark{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:.62em;
+    font-weight:600;
+    color:var(--accent);
+    white-space:nowrap;
+  }
+  section.clause h3{
+    font-family:'Source Sans 3', sans-serif;
+    font-weight:700;
+    font-size:1rem;
+    margin:20px 0 8px;
+    color:var(--text);
+  }
+  section.clause p{margin:0 0 14px; max-width:65ch;}
+  section.clause ul, section.clause ol{margin:0 0 14px; padding-left:22px; max-width:65ch;}
+  section.clause li{margin-bottom:6px;}
+  section.clause p:last-child, section.clause ul:last-child{margin-bottom:0;}
+
+  code, .code{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:.88em;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    border-radius:4px;
+    padding:.1em .4em;
+  }
+
+  .data-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:0 0 14px;
+    font-size:.93rem;
+  }
+  .data-table th, .data-table td{
+    text-align:left;
+    padding:10px 12px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+  }
+  .data-table th{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--text-faint);
+    font-weight:600;
+  }
+  .table-wrap{overflow-x:auto; border:1px solid var(--border); border-radius:10px; margin-bottom:14px;}
+  .table-wrap .data-table{margin-bottom:0; border:none;}
+  .table-wrap .data-table tr:last-child td{border-bottom:none;}
+
+  .callout{
+    border-left:3px solid var(--accent);
+    background:var(--surface-2);
+    border-radius:0 8px 8px 0;
+    padding:14px 18px;
+    margin:0 0 14px;
+    font-size:.94rem;
+    color:var(--text-muted);
+  }
+  .callout strong{color:var(--text);}
+
+  footer.doc-foot{
+    margin-top:56px;
+    padding-top:24px;
+    border-top:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  footer.doc-foot p{
+    margin:0;
+    font-size:.85rem;
+    color:var(--text-faint);
+  }
+  .back-top{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:12px;
+    color:var(--text-muted);
+    text-decoration:none;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:7px 12px;
+  }
+  .back-top:hover{color:var(--accent-strong); border-color:var(--accent);}
+
+  @media (max-width:560px){
+    nav.toc ol{columns:1;}
+    .wrap{padding:40px 18px 72px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="lang-switch"><button id="btnLangSwitch" type="button" onclick="togglePolicyLang()">🌐 English</button></div>
+
+  <div id="policy-content"></div>
+
+</div>
+
+<script>
+var CONTENT = {
+  pl: {
+    title: "AWANS - Polityka Prywatności",
+    htmlLang: "pl",
+    switchLabel: "🌐 English",
+    body: ' \
+  <header class="doc-head"> \
+    <div class="eyebrow"><span class="dot"></span>Ochrona danych osobowych</div> \
+    <h1>Polityka Prywatności</h1> \
+    <p class="subtitle">AWANS — Droga Na Szczyt</p> \
+    <div class="meta-row"> \
+      <span class="meta-chip">Obowiązuje od <b>12 września 2026</b></span> \
+      <span class="meta-chip">Wersja <b>1.0</b></span> \
+      <span class="meta-chip">Kontakt <b>our.games.connect@gmail.com</b></span> \
+    </div> \
+  </header> \
+\
+  <div class="tldr"> \
+    <h2>Najkrócej, jak się da</h2> \
+    <ul> \
+      <li><strong>Gra działa offline.</strong> Twoja kariera, statystyki i zdjęcie zawodnika zostają wyłącznie na Twoim telefonie.</li> \
+      <li><strong>Nie mamy serwerów.</strong> Nic z Twoich danych do nas nie trafia — nie mamy jak ich zobaczyć ani zgubić.</li> \
+      <li><strong>Jedyny zewnętrzny dostawca to Google AdMob</strong> — wyświetla reklamy i w tym celu zbiera identyfikator reklamowy urządzenia.</li> \
+      <li><strong>Zero płatności prawdziwymi pieniędzmi.</strong> Waluta w grze jest wirtualna i zdobywana wyłącznie przez rozgrywkę.</li> \
+      <li><strong>Usuwasz dane w każdej chwili</strong> — kasując zapis kariery w grze albo odinstalowując aplikację.</li> \
+    </ul> \
+  </div> \
+\
+  <nav class="toc" aria-label="Spis treści"> \
+    <h2>Spis treści</h2> \
+    <ol> \
+      <li><a href="#s1"><span class="n">§1</span> Kim jesteśmy</a></li> \
+      <li><a href="#s2"><span class="n">§2</span> Dane zapisu kariery</a></li> \
+      <li><a href="#s3"><span class="n">§3</span> Zdjęcie zawodnika</a></li> \
+      <li><a href="#s4"><span class="n">§4</span> Reklamy (Google AdMob)</a></li> \
+      <li><a href="#s5"><span class="n">§5</span> Podstawa prawna i zgoda</a></li> \
+      <li><a href="#s6"><span class="n">§6</span> Dzieci i osoby niepełnoletnie</a></li> \
+      <li><a href="#s7"><span class="n">§7</span> Przechowywanie i usuwanie</a></li> \
+      <li><a href="#s8"><span class="n">§8</span> Twoje prawa</a></li> \
+      <li><a href="#s9"><span class="n">§9</span> Bezpieczeństwo</a></li> \
+      <li><a href="#s10"><span class="n">§10</span> Zmiany polityki</a></li> \
+      <li><a href="#s11"><span class="n">§11</span> Kontakt</a></li> \
+    </ol> \
+  </nav> \
+\
+  <section class="clause" id="s1"> \
+    <h2><span class="mark">§1</span> Kim jesteśmy</h2> \
+    <p>AWANS — Droga Na Szczyt (dalej: „Gra") to mobilna gra sportowo-fabularna. Niniejsza polityka opisuje, jakie dane są przetwarzane podczas korzystania z Gry na Androidzie oraz kto i w jakim celu ma do nich dostęp.</p> \
+    <p>Administratorem w rozumieniu tej polityki jest wydawca Gry, dostępny pod adresem podanym w §11. Nie prowadzimy własnych serwerów gry — cała rozgrywka i zapisy działają lokalnie na Twoim urządzeniu.</p> \
+  </section> \
+\
+  <section class="clause" id="s2"> \
+    <h2><span class="mark">§2</span> Dane zapisu kariery</h2> \
+    <p>Postęp w Grze zapisywany jest wyłącznie w lokalnej pamięci Twojego urządzenia (mechanizm przeglądarkowy <code>localStorage</code> wewnątrz aplikacji). Nigdy nie jest wysyłany na żaden zewnętrzny serwer, w tym nasz.</p> \
+    <div class="table-wrap"> \
+      <table class="data-table"> \
+        <thead><tr><th>Kategoria</th><th>Przykład</th></tr></thead> \
+        <tbody> \
+          <tr><td>Tożsamość w grze</td><td>Pseudonim zawodnika wpisany przy tworzeniu kariery (do 15 znaków)</td></tr> \
+          <tr><td>Statystyki</td><td>SZB, WYK, TEC, SIŁ, PRZ, UST, poziom OVR i ich progresja treningowa</td></tr> \
+          <tr><td>Przebieg kariery</td><td>Klub, liga, kraj, wyniki meczów, sezonowe statystyki, historia transferów, trofea</td></tr> \
+          <tr><td>Ekwipunek</td><td>Zawartość plecaka, założone przedmioty, postęp Kuźni, saldo wirtualnej waluty</td></tr> \
+          <tr><td>Preferencje</td><td>Wybrany widok meczu (tekstowy / 2D)</td></tr> \
+        </tbody> \
+      </table> \
+    </div> \
+    <p>Dane te są dostępne wyłącznie w obrębie aplikacji na Twoim urządzeniu. Nie mamy do nich dostępu, nie kopiujemy ich i nie łączymy z żadną inną bazą.</p> \
+  </section> \
+\
+  <section class="clause" id="s3"> \
+    <h2><span class="mark">§3</span> Zdjęcie zawodnika</h2> \
+    <p>Gra pozwala opcjonalnie wgrać zdjęcie, które pojawia się na karcie zawodnika. Zdjęcie jest odczytywane bezpośrednio z pamięci urządzenia i zapisywane razem z resztą danych kariery w <code>localStorage</code> — na żadnym etapie nie jest przesyłane do nas ani do jakiegokolwiek zewnętrznego serwera.</p> \
+    <div class="callout">Wgranie zdjęcia jest w pełni dobrowolne. Bez niego karta zawodnika używa domyślnej ikony.</div> \
+  </section> \
+\
+  <section class="clause" id="s4"> \
+    <h2><span class="mark">§4</span> Reklamy (Google AdMob)</h2> \
+    <p>Gra wyświetla reklamy dostarczane przez <strong>Google AdMob</strong> (Google Ireland Limited / Google LLC) — to jedyny zewnętrzny dostawca danych, z którego korzystamy. AdMob może w tym celu zbierać:</p> \
+    <ul> \
+      <li>identyfikator reklamowy urządzenia (Advertising ID) lub jego odpowiednik na nowszych wersjach Androida,</li> \
+      <li>ogólne dane o urządzeniu i aplikacji (model, wersja systemu, język),</li> \
+      <li>przybliżoną lokalizację wynikającą z adresu IP,</li> \
+      <li>dane o interakcji z reklamą (wyświetlenie, kliknięcie, obejrzenie do końca).</li> \
+    </ul> \
+    <p>Dane te są przetwarzane przez Google jako niezależnego administratora, na zasadach opisanych w <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Polityce Prywatności Google</a> oraz w informacji <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">jak Google wykorzystuje dane z aplikacji korzystających z jego usług</a>.</p> \
+    <p>Użytkownicy z UE, Wielkiej Brytanii i Szwajcarii zobaczą przy pierwszym uruchomieniu formularz zgody Google (User Messaging Platform), w którym można zaakceptować lub odrzucić spersonalizowane reklamy. Preferencje reklamowe możesz też zmienić w dowolnym momencie w <a href="https://adssettings.google.com" target="_blank" rel="noopener">Ustawieniach reklam Google</a>.</p> \
+  </section> \
+\
+  <section class="clause" id="s5"> \
+    <h2><span class="mark">§5</span> Podstawa prawna i zgoda</h2> \
+    <p>W zakresie danych zbieranych lokalnie na Twoim urządzeniu (§2–§3) nie przetwarzamy żadnych danych osobowych po naszej stronie, więc nie zachodzi tu podstawa prawna z RODO — dane po prostu nie do nas nie trafiają.</p> \
+    <p>W zakresie reklam (§4) podstawą prawną jest Twoja zgoda wyrażona w formularzu zgody Google (art. 6 ust. 1 lit. a RODO) dla reklam spersonalizowanych, a tam gdzie zgoda nie jest wymagana — nasz i Google uzasadniony interes w finansowaniu bezpłatnej Gry poprzez reklamy kontekstowe (art. 6 ust. 1 lit. f RODO).</p> \
+  </section> \
+\
+  <section class="clause" id="s6"> \
+    <h2><span class="mark">§6</span> Dzieci i osoby niepełnoletnie</h2> \
+    <p>Gra nie jest kierowana do dzieci poniżej 13 roku życia i nie jest częścią programu Google Play Families. Nie zbieramy świadomie danych od dzieci poniżej tego wieku. Jeśli jesteś rodzicem lub opiekunem i uważasz, że Twoje dziecko przekazało nam dane wbrew tej zasadzie, skontaktuj się z nami — usuniemy je niezwłocznie.</p> \
+  </section> \
+\
+  <section class="clause" id="s7"> \
+    <h2><span class="mark">§7</span> Przechowywanie i usuwanie danych</h2> \
+    <p>Dane zapisu kariery pozostają na urządzeniu tak długo, jak długo trzymasz Grę zainstalowaną. Możesz je usunąć w dowolnym momencie:</p> \
+    <ul> \
+      <li>przyciskiem usuwania zapisu przy wybranym slocie kariery w Grze,</li> \
+      <li>czyszcząc dane aplikacji w ustawieniach systemu Android,</li> \
+      <li>odinstalowując Grę — <code>localStorage</code> aplikacji jest wtedy trwale kasowany przez system.</li> \
+    </ul> \
+    <p>Dane zbierane przez AdMob (§4) podlegają okresom przechowywania określonym w polityce Google, niezależnym od nas.</p> \
+  </section> \
+\
+  <section class="clause" id="s8"> \
+    <h2><span class="mark">§8</span> Twoje prawa</h2> \
+    <p>Jeśli podlegasz RODO, CCPA lub podobnym przepisom, przysługuje Ci prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia oraz sprzeciwu.</p> \
+    <p>Ponieważ dane opisane w §2–§3 istnieją wyłącznie na Twoim urządzeniu, egzekwujesz te prawa bezpośrednio — usuwając zapis lub odinstalowując aplikację, jak w §7. W sprawie danych zbieranych przez AdMob skorzystaj z narzędzi Google (<a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">Moje Konto Google</a>) lub napisz do nas, a pomożemy skierować zapytanie we właściwe miejsce.</p> \
+  </section> \
+\
+  <section class="clause" id="s9"> \
+    <h2><span class="mark">§9</span> Bezpieczeństwo</h2> \
+    <p>Ponieważ nie posiadamy serwerów ani baz danych graczy, nie istnieje po naszej stronie ryzyko wycieku danych z zapisu kariery — nie mamy ich kopii. Bezpieczeństwo danych zapisanych lokalnie zależy od zabezpieczeń Twojego urządzenia (blokada ekranu, aktualizacje systemu). Zalecamy standardowe środki ostrożności, jak przy każdej aplikacji.</p> \
+  </section> \
+\
+  <section class="clause" id="s10"> \
+    <h2><span class="mark">§10</span> Zmiany polityki</h2> \
+    <p>Możemy aktualizować tę politykę, np. przy dodaniu nowych funkcji lub usług zewnętrznych. Data przy nagłówku „Obowiązuje od" zawsze wskazuje aktualną wersję. Istotne zmiany zasygnalizujemy w informacjach o aktualizacji Gry w Google Play.</p> \
+  </section> \
+\
+  <section class="clause" id="s11"> \
+    <h2><span class="mark">§11</span> Kontakt</h2> \
+    <p>Pytania dotyczące tej polityki lub Twoich danych możesz kierować na adres:</p> \
+    <p><a href="mailto:our.games.connect@gmail.com">our.games.connect@gmail.com</a></p> \
+  </section> \
+\
+  <footer class="doc-foot"> \
+    <p>AWANS — Droga Na Szczyt · Polityka Prywatności v1.0</p> \
+    <a class="back-top" href="#top">↑ Do góry</a> \
+  </footer> \
+'
+  },
+  en: {
+    title: "AWANS - Privacy Policy",
+    htmlLang: "en",
+    switchLabel: "🌐 Polski",
+    body: ' \
+  <header class="doc-head"> \
+    <div class="eyebrow"><span class="dot"></span>Personal Data Protection</div> \
+    <h1>Privacy Policy</h1> \
+    <p class="subtitle">AWANS — Road To The Top</p> \
+    <div class="meta-row"> \
+      <span class="meta-chip">In effect since <b>September 12, 2026</b></span> \
+      <span class="meta-chip">Version <b>1.0</b></span> \
+      <span class="meta-chip">Contact <b>our.games.connect@gmail.com</b></span> \
+    </div> \
+  </header> \
+\
+  <div class="tldr"> \
+    <h2>The short version</h2> \
+    <ul> \
+      <li><strong>The game works offline.</strong> Your career, stats, and player photo stay exclusively on your phone.</li> \
+      <li><strong>We don\'t have servers.</strong> None of your data ever reaches us — we have no way to see it or lose it.</li> \
+      <li><strong>The only external provider is Google AdMob</strong> — it displays ads and collects the device\'s advertising identifier for that purpose.</li> \
+      <li><strong>Zero real-money payments.</strong> The in-game currency is virtual and earned exclusively through gameplay.</li> \
+      <li><strong>You can delete your data at any time</strong> — by deleting your career save in the game or uninstalling the app.</li> \
+    </ul> \
+  </div> \
+\
+  <nav class="toc" aria-label="Table of contents"> \
+    <h2>Table of contents</h2> \
+    <ol> \
+      <li><a href="#s1"><span class="n">§1</span> Who we are</a></li> \
+      <li><a href="#s2"><span class="n">§2</span> Career save data</a></li> \
+      <li><a href="#s3"><span class="n">§3</span> Player photo</a></li> \
+      <li><a href="#s4"><span class="n">§4</span> Ads (Google AdMob)</a></li> \
+      <li><a href="#s5"><span class="n">§5</span> Legal basis and consent</a></li> \
+      <li><a href="#s6"><span class="n">§6</span> Children and minors</a></li> \
+      <li><a href="#s7"><span class="n">§7</span> Storage and deletion</a></li> \
+      <li><a href="#s8"><span class="n">§8</span> Your rights</a></li> \
+      <li><a href="#s9"><span class="n">§9</span> Security</a></li> \
+      <li><a href="#s10"><span class="n">§10</span> Policy changes</a></li> \
+      <li><a href="#s11"><span class="n">§11</span> Contact</a></li> \
+    </ol> \
+  </nav> \
+\
+  <section class="clause" id="s1"> \
+    <h2><span class="mark">§1</span> Who we are</h2> \
+    <p>AWANS — Road To The Top (the "Game") is a mobile sports RPG. This policy describes what data is processed while using the Game on Android, and who has access to it and for what purpose.</p> \
+    <p>The data controller under this policy is the Game\'s publisher, reachable at the address given in §11. We do not run our own game servers — all gameplay and saves run locally on your device.</p> \
+  </section> \
+\
+  <section class="clause" id="s2"> \
+    <h2><span class="mark">§2</span> Career save data</h2> \
+    <p>Your progress in the Game is saved exclusively in your device\'s local storage (the browser-based <code>localStorage</code> mechanism inside the app). It is never sent to any external server, including ours.</p> \
+    <div class="table-wrap"> \
+      <table class="data-table"> \
+        <thead><tr><th>Category</th><th>Example</th></tr></thead> \
+        <tbody> \
+          <tr><td>In-game identity</td><td>Player nickname entered when creating a career (up to 15 characters)</td></tr> \
+          <tr><td>Stats</td><td>PAC, FIN, TEC, STR, VIS, POS, OVR rating, and their training progression</td></tr> \
+          <tr><td>Career progress</td><td>Club, league, country, match results, season stats, transfer history, trophies</td></tr> \
+          <tr><td>Equipment</td><td>Backpack contents, equipped items, Forge progress, virtual currency balance</td></tr> \
+          <tr><td>Preferences</td><td>Selected match view (text / 2D)</td></tr> \
+        </tbody> \
+      </table> \
+    </div> \
+    <p>This data is only ever accessible within the app on your device. We have no access to it, do not copy it, and do not combine it with any other database.</p> \
+  </section> \
+\
+  <section class="clause" id="s3"> \
+    <h2><span class="mark">§3</span> Player photo</h2> \
+    <p>The Game optionally lets you upload a photo that appears on your player card. The photo is read directly from your device\'s storage and saved together with the rest of your career data in <code>localStorage</code> — at no point is it sent to us or to any external server.</p> \
+    <div class="callout">Uploading a photo is entirely optional. Without one, the player card uses a default icon.</div> \
+  </section> \
+\
+  <section class="clause" id="s4"> \
+    <h2><span class="mark">§4</span> Ads (Google AdMob)</h2> \
+    <p>The Game displays ads served by <strong>Google AdMob</strong> (Google Ireland Limited / Google LLC) — this is the only external data provider we use. AdMob may collect for this purpose:</p> \
+    <ul> \
+      <li>the device\'s advertising identifier (Advertising ID) or its equivalent on newer Android versions,</li> \
+      <li>general device and app data (model, OS version, language),</li> \
+      <li>an approximate location derived from your IP address,</li> \
+      <li>ad interaction data (impression, click, completed view).</li> \
+    </ul> \
+    <p>This data is processed by Google as an independent controller, under the terms described in <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google\'s Privacy Policy</a> and in the explanation of <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">how Google uses data from apps that use its services</a>.</p> \
+    <p>Users in the EU, UK, and Switzerland will see Google\'s consent form (User Messaging Platform) on first launch, where you can accept or decline personalized ads. You can also change your ad preferences at any time in <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ads Settings</a>.</p> \
+  </section> \
+\
+  <section class="clause" id="s5"> \
+    <h2><span class="mark">§5</span> Legal basis and consent</h2> \
+    <p>For data collected locally on your device (§2–§3), we do not process any personal data on our end, so no GDPR legal basis applies here — the data simply never reaches us.</p> \
+    <p>For ads (§4), the legal basis is your consent given through Google\'s consent form (Art. 6(1)(a) GDPR) for personalized ads, and where consent is not required — our and Google\'s legitimate interest in funding the free Game through contextual ads (Art. 6(1)(f) GDPR).</p> \
+  </section> \
+\
+  <section class="clause" id="s6"> \
+    <h2><span class="mark">§6</span> Children and minors</h2> \
+    <p>The Game is not directed at children under 13 and is not part of the Google Play Families program. We do not knowingly collect data from children under this age. If you are a parent or guardian and believe your child has provided us with data in violation of this rule, please contact us and we will remove it promptly.</p> \
+  </section> \
+\
+  <section class="clause" id="s7"> \
+    <h2><span class="mark">§7</span> Storage and deletion</h2> \
+    <p>Career save data stays on your device for as long as you keep the Game installed. You can delete it at any time by:</p> \
+    <ul> \
+      <li>using the delete-save button on the chosen career slot in the Game,</li> \
+      <li>clearing the app\'s data in Android system settings,</li> \
+      <li>uninstalling the Game — the app\'s <code>localStorage</code> is then permanently erased by the system.</li> \
+    </ul> \
+    <p>Data collected by AdMob (§4) is subject to retention periods defined by Google\'s own policy, independent of us.</p> \
+  </section> \
+\
+  <section class="clause" id="s8"> \
+    <h2><span class="mark">§8</span> Your rights</h2> \
+    <p>If you are covered by GDPR, CCPA, or similar regulations, you have the right to access, rectify, erase, restrict processing of, port, and object to the processing of your data.</p> \
+    <p>Since the data described in §2–§3 exists only on your device, you exercise these rights directly — by deleting your save or uninstalling the app, as described in §7. For data collected by AdMob, use Google\'s own tools (<a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">Google My Account</a>) or write to us and we\'ll help direct your request to the right place.</p> \
+  </section> \
+\
+  <section class="clause" id="s9"> \
+    <h2><span class="mark">§9</span> Security</h2> \
+    <p>Because we have no servers or player databases, there is no risk on our end of a career-save data leak — we don\'t hold a copy of it. The security of data stored locally depends on your device\'s own protections (screen lock, system updates). We recommend the same standard precautions you\'d take with any app.</p> \
+  </section> \
+\
+  <section class="clause" id="s10"> \
+    <h2><span class="mark">§10</span> Policy changes</h2> \
+    <p>We may update this policy, for example when adding new features or external services. The date next to "In effect since" always reflects the current version. We will flag significant changes in the Game\'s update notes on Google Play.</p> \
+  </section> \
+\
+  <section class="clause" id="s11"> \
+    <h2><span class="mark">§11</span> Contact</h2> \
+    <p>Questions about this policy or your data can be sent to:</p> \
+    <p><a href="mailto:our.games.connect@gmail.com">our.games.connect@gmail.com</a></p> \
+  </section> \
+\
+  <footer class="doc-foot"> \
+    <p>AWANS — Road To The Top · Privacy Policy v1.0</p> \
+    <a class="back-top" href="#top">↑ Back to top</a> \
+  </footer> \
+'
+  }
+};
+
+function renderPolicyLang(lang) {
+  var c = CONTENT[lang] || CONTENT.pl;
+  document.getElementById('policy-content').innerHTML = c.body;
+  document.getElementById('btnLangSwitch').textContent = c.switchLabel;
+  document.title = c.title;
+  document.documentElement.setAttribute('lang', c.htmlLang);
+  // ta strona żyje na GitHub Pages, pod zupełnie innym originem niż aplikacja (WebView ma własny,
+  // odizolowany localStorage) - nie ma więc wspólnego klucza fbrpg_lang do odczytania; pamiętamy
+  // wybór tylko dla powrotnych wizyt na TEJ stronie, pod osobnym kluczem
+  try { localStorage.setItem('awans_privacy_lang', lang); } catch (e) {}
+}
+
+function togglePolicyLang() {
+  var current = document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'pl';
+  renderPolicyLang(current === 'pl' ? 'en' : 'pl');
+}
+
+(function () {
+  var initial = 'pl';
+  try {
+    var saved = localStorage.getItem('awans_privacy_lang');
+    if (saved === 'en' || saved === 'pl') initial = saved;
+    // pierwsza wizyta (brak zapamiętanego wyboru) - zgadujemy z języka przeglądarki, bo odbiorcy tej
+    // strony to nie tylko gracze (np. recenzenci Google Play), więc PL jako sztywny domyślny nie pasuje
+    else if (navigator.language && !/^pl/i.test(navigator.language)) initial = 'en';
+  } catch (e) {}
+  renderPolicyLang(initial);
+})();
+</script>
+</body>
+</html>
